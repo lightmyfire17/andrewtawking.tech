@@ -1,0 +1,187 @@
+@import "fonts";
+@import "variables";
+@import "normalize";
+@import "media";
+
+html {
+  font-family: $font-family;
+  font-weight: 500;
+  margin: 0;
+  color: $secondary;
+  background: $base;
+  font-size: 16px;
+
+  @include size-llg {
+    font-size: 14px;
+  }
+
+  @include size-lg {
+    font-size: 11px;
+  }
+
+  @include size-md {
+    font-size: 8px;
+  }
+
+  @include size-xss {
+    font-size: 6px;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-style: normal;
+  }
+}
+
+a {
+  color: inherit;
+}
+
+.title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: $fz-title;
+  line-height: calc(#{$fz-title} + 1px);
+
+  @include size-md {
+    text-align: center;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.wrapper {
+  max-width: $desktop-size-llg;
+  margin: 0 auto;
+  padding: 50px 150px;
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+
+  @include size-md {
+    padding: 58px 16px;
+  }
+
+  @include size-xss {
+    padding: 24px 16px;
+  }
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+
+  @include size-md {
+    display: block;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+
+    @include size-md {
+      display: inline-block;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: flex-end;
+
+    @include size-md {
+      margin-top: 24px;
+    }
+  }
+
+  &__left {
+    @include size-md {
+      display: table-caption;
+    }
+  }
+
+  &__title {
+    text-align: right;
+    font-size: $fz-descr;
+    line-height: calc(#{$fz-descr} + 1px);
+    font-weight: bold;
+  }
+
+  &__link {
+    font-size: $fz-link;
+    line-height: calc(#{$fz-link} + 1px);
+    text-decoration-line: underline;
+
+    &:hover {
+      color: $secondary-hover;
+    }
+  }
+}
+
+.background {
+  z-index: -1;
+  position: absolute;
+  right: 0px;
+  top: 0;
+  margin: 0 auto;
+
+  @include size-md {
+    width: 295px;
+    right: 0;
+    left: 0;
+    top: 130px;
+  }
+
+  @include size-xss {
+    width: 180px;
+
+    @include size-md {
+      top: 100px;
+    }
+  }
+
+  &__star {
+    animation: spin 45s linear infinite;
+
+    @include size-md {
+      width: 295px;
+      height: 295px;
+    }
+
+    @include size-xss {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  &__dev {
+    position: absolute;
+    left: 39%;
+    top: 44%;
+
+    @include size-md {
+      width: 112px;
+      height: 80px;
+      left: 31%;
+      top: 36%;
+    }
+
+    @include size-xss {
+      height: 45px;
+      left: 20%;
+    }
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
